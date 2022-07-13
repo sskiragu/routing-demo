@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Navigation({setOpenModal}) {
+function Navigation({setOpenModal, setOpenSignupModal}) {
   return (
     <div className='container'>
         <nav className="navbar navbar-expand-lg bg-light">
@@ -30,7 +30,7 @@ function Navigation({setOpenModal}) {
                     <button className="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 <div><button type='button' onClick={() => {setOpenModal(true)}} className="btn btn-outline-primary mx-2">Login</button></div>
-                <div><Link to='/signup'><button type='button' className="btn btn-outline-primary">Signup</button></Link></div>
+                <div><button type='button' onClick={() => {setOpenSignupModal(true)}} className="btn btn-outline-primary mx-2">Sign up</button></div>
                 </div>
             </div>
         </nav>

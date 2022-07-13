@@ -26,12 +26,11 @@ function Login({closeModal}) {
             <input type="checkbox" className="form-check-input" id="exampleCheck1" />
             <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
-        </form>
-            </div>
             <div className="modal-footer">
                 <button type="button" onClick={() => closeModal(false)} className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" className="btn btn-primary">Login</button>
+            </div>
+        </form>
             </div>
             </div>
         </div>

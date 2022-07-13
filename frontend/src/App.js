@@ -19,6 +19,7 @@ function App() {
   const [content, setContent] = useState()
   const [users, setUsers] = useState([])
   const [openModal, setOpenModal] = useState(false)
+  const [openSignupModal, setOpenSignupModal] = useState(false)
 
   useEffect(() => {
     getContent()
@@ -53,8 +54,9 @@ function App() {
   return (
     <div className='container'>
       <BrowserRouter>
-      <Navigation setOpenModal={setOpenModal}/>
+      <Navigation setOpenModal={setOpenModal} setOpenSignupModal={setOpenSignupModal}/>
       {openModal && <Login closeModal={setOpenModal}/>}
+      {openSignupModal && <Signup closeModal={setOpenSignupModal}/>}
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/about' element={<About />} />
