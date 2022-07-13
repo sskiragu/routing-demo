@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { LoginModalContext } from '../context/LoginModalContext'
 import './Login.css'
 
-function Login({closeModal}) {
+function Login() {
+    const { setOpenModal } = useContext(LoginModalContext)
   return (
     <div className='container'>
         <div className='modal-app'>
@@ -9,7 +11,7 @@ function Login({closeModal}) {
             <div className="modal-content">
             <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" onClick={() => closeModal(false)} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" onClick={() => setOpenModal(false)} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
             <form>
@@ -27,7 +29,7 @@ function Login({closeModal}) {
             <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
         </div>
             <div className="modal-footer">
-                <button type="button" onClick={() => closeModal(false)} className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" onClick={() => setOpenModal(false)} className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" className="btn btn-primary">Login</button>
             </div>
         </form>
