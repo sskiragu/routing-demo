@@ -1,9 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { LoginModalContext } from '../context/LoginModalContext'
 import './Login.css'
 
 function Login() {
-    const { setOpenModal } = useContext(LoginModalContext)
+    const emailRef = useRef()
+    const { setOpenModal: closeModal } = useContext(LoginModalContext)
+    useEffect(() => {
+        emailRef.current.focus()
+    })
   return (
     <div className='container'>
         <div className='modal-app'>
@@ -11,13 +15,13 @@ function Login() {
             <div className="modal-content">
             <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" onClick={() => setOpenModal(false)} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" onClick={() => closeModal(false)} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
             <form>
         <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <input type="email" ref={emailRef} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
             <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div className="mb-3">
@@ -29,7 +33,7 @@ function Login() {
             <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
         </div>
             <div className="modal-footer">
-                <button type="button" onClick={() => setOpenModal(false)} className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" onClick={() => closeModal(false)} className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" className="btn btn-primary">Login</button>
             </div>
         </form>
