@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { ModalContext } from '../context/ModalContext'
 
-function Navigation({setOpenModal, setOpenSignupModal}) {
+function Navigation() {
+    const { setOpenModal, setOpenSignupModal } = useContext(ModalContext)
   return (
     <div className='container'>
         <nav className="navbar navbar-expand-lg bg-light">

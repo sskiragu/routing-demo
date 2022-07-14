@@ -13,7 +13,7 @@ import Home from './components/Home';
 import Contacts from './components/Contacts';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import { LoginModalContext } from './context/LoginModalContext';
+import { ModalContext } from './context/ModalContext';
 
 function App() {
 
@@ -55,11 +55,11 @@ function App() {
   return (
     <div className='container'>
       <BrowserRouter>
-      <Navigation setOpenModal={setOpenModal} setOpenSignupModal={setOpenSignupModal}/>
-      <LoginModalContext.Provider value={{setOpenModal}}>
+      <ModalContext.Provider value={{ setOpenModal, setOpenSignupModal }}>
+      <Navigation />
         {openModal && <Login />}
-      </LoginModalContext.Provider>
-      {openSignupModal && <Signup closeModal={ setOpenSignupModal }/>}
+      {openSignupModal && <Signup />}
+      </ModalContext.Provider>
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/about' element={<About />} />

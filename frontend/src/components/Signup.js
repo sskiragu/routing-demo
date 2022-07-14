@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ModalContext } from '../context/ModalContext'
 
-function Signup({closeModal}) {
+function Signup() {
+    const {setOpenSignupModal: closeModal} = useContext(ModalContext)
   return (
     <div className='container'>
         <div className='modal-app'>

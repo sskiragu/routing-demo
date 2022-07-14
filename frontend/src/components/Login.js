@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useRef } from 'react'
-import { LoginModalContext } from '../context/LoginModalContext'
+import { ModalContext } from '../context/ModalContext'
 import './Login.css'
 
 function Login() {
     const emailRef = useRef()
-    const { setOpenModal: closeModal } = useContext(LoginModalContext)
+    const { setOpenModal: closeModal } = useContext(ModalContext)
     useEffect(() => {
         emailRef.current.focus()
     })
